@@ -5,12 +5,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Devanshu Gupta | Software Engineer",
   description:
-    "Software engineer in Indore working on applied AI, document automation, model evaluation, backend services and machine-learning applications.",
+    "Devanshu Gupta is a software engineer in Indore working on applied AI, document automation, model evaluation, backend services and machine-learning applications.",
+  authors: [{ name: "Devanshu Gupta" }],
+  creator: "Devanshu Gupta",
   openGraph: {
     title: "Devanshu Gupta | Software Engineer",
     description:
       "Applied AI, document workflows, model evaluation and backend engineering.",
-    type: "website"
+    type: "website",
+    siteName: "Devanshu Gupta"
   },
   robots: { index: true, follow: true }
 };

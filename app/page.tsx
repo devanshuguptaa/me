@@ -64,30 +64,6 @@ const projects = [
     repo: github + "/ransomware-detection",
     detail: "The workflow covers dataset and label-distribution exploration, correlation analysis, Information Value and Weight of Evidence feature analysis, Random Forest training and evaluation, SMOTE-Tomek resampling, and LIME explanations for individual predictions. I have not added an accuracy figure because I do not have a verified result to publish."
   },
-  {
-    number: "05",
-    name: "Email MCP Agent",
-    category: "AGENT SYSTEMS · INTEGRATIONS",
-    year: "2024–25",
-    headline: "Turning requests into authenticated Gmail and Calendar actions.",
-    description: "Built an OAuth-secured email and calendar agent with FastAPI, Gemini and session-scoped conversation context.",
-    proof: ["OAuth-secured Google APIs", "Email + Calendar actions", "Session-scoped memory"],
-    stack: ["Python", "FastAPI", "Gemini", "MCP", "SQLite"],
-    repo: github + "/Email-MCP-Agent",
-    detail: "Gemini interprets requests and LangGraph coordinates the tool flow. OAuth-secured Gmail operations include reading message details, creating drafts and sending messages; Calendar tools list upcoming events and create new ones. SQLite stores context by session. The service keeps Google API access behind authenticated integrations."
-  },
-  {
-    number: "06",
-    name: "Collaborative Comment System",
-    category: "FULL STACK · REALTIME",
-    year: "2025",
-    headline: "Keeping comments and typing status in sync across users.",
-    description: "Built session-authenticated comments with PostgreSQL persistence and Socket.IO events for live updates and typing status.",
-    proof: ["Realtime updates", "PostgreSQL + Redis", "Session-based authentication"],
-    stack: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Redis", "Socket.IO"],
-    repo: github + "/collaborative-comment-system",
-    detail: "The application uses a Next.js and TypeScript frontend with an Express backend, PostgreSQL persistence, Redis-backed session and cache support, and Socket.IO events. Core flows include registration, login, comment creation and retrieval, live comment updates, and typing status."
-  }
 ];
 const leaseGuardProject = projects.find((project) => project.name === "LeaseGuard AI");
 
@@ -180,7 +156,7 @@ export default function Home() {
     <>
       <header className="topbar">
         <nav className="wrap nav" aria-label="Main navigation">
-          <a className="brand" href="#top" aria-label="Devanshu Gupta home">DG<span>.</span></a>
+          <a className="brand" href="#top" aria-label="Devanshu Gupta home">Devanshu Gupta<span>.</span></a>
           <div id="primary-navigation" className={"links " + (menuOpen ? "open" : "")}>
             <a href="#work" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
@@ -216,6 +192,7 @@ export default function Home() {
             </div>
             <div className="hero-grid">
               <div className="hero-copy">
+                <div className="identity-line"><img src="/devanshu-gupta.jpg" alt="Devanshu Gupta" width="76" height="76"/><div><span className="identity-overline mono">SOFTWARE ENGINEER</span><strong>Devanshu Gupta</strong></div></div>
                 <div className="mono kicker">PYTHON · FASTAPI · TYPESCRIPT</div>
                 <h1>I build AI<br/>and backend<br/><em>software.</em></h1>
                 <p className="lead">I work mainly in Python and TypeScript, building document-processing pipelines, model-evaluation workflows and integrations for AI products. I pay attention to the parts that make them usable: reliable APIs, accurate outputs, permissions and clear failure paths.</p>
@@ -249,7 +226,7 @@ export default function Home() {
         <section className="section work-section" id="work">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">01 — Projects</div><h2>A few projects<br/>I’ve worked on.</h2></div>
+              <div><div className="mono section-kicker">01 — Projects</div><h2>Projects I’ve<br/>worked on.</h2></div>
               <p className="section-intro">A closer look at the applications and systems I’ve built: what each one does, the parts I worked on and the technical decisions behind it.</p>
             </div>
             {leaseGuardProject && <article className="featured-project">
