@@ -90,6 +90,7 @@ const projects = [
     detail: "The application uses a Next.js and TypeScript frontend with an Express backend, PostgreSQL persistence, Redis-backed session and cache support, and Socket.IO events. Core flows include registration, login, comment creation and retrieval, live comment updates, and typing status."
   }
 ];
+const leaseGuardProject = projects.find((project) => project.name === "LeaseGuard AI");
 
 const experience = [
   {
@@ -205,11 +206,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-panel">
-                <div className="panel-heading">WORK I’VE DONE</div>
-                <div className="panel-row"><span>01</span><div><strong>Document workflows</strong><p>Classification · extraction · validation · human review</p></div></div>
-                <div className="panel-row"><span>02</span><div><strong>Model evaluation</strong><p>Coding tasks · edge cases · failure analysis</p></div></div>
-                <div className="panel-row"><span>03</span><div><strong>Tool integrations</strong><p>MCP · Gmail · Google Calendar</p></div></div>
-                <div className="panel-row"><span>04</span><div><strong>Realtime applications</strong><p>WebRTC · WebSockets · FastAPI</p></div></div>
+                <div className="panel-heading">EXPERIENCE</div>
+                <div className="panel-row"><span>01</span><div><strong>Gen AI Developer <small>· BluCursor Infotech</small></strong><p>Built LeaseGuard AI, a production document platform for US residency applications.</p></div></div>
+                <div className="panel-row"><span>02</span><div><strong>Software Developer Engineer <small>· Data Annotation</small></strong><p>Created coding tasks and edge cases; evaluated model-generated code for correctness and reasoning.</p></div></div>
+                <div className="panel-row"><span>03</span><div><strong>Founding Engineer <small>· Advanced Intelligence Ventures</small></strong><p>Built an OAuth-secured Gmail MCP agent with LLM intent handling and Calendar tools.</p></div></div>
               </div>
             </div>
             <div className="hero-foot"><span>SCROLL TO EXPLORE</span><span className="scroll-line"/><span>PORTFOLIO / 2026</span></div>
@@ -228,8 +228,36 @@ export default function Home() {
               <div><div className="mono section-kicker">01 — Projects</div><h2>A few projects<br/>I’ve worked on.</h2></div>
               <p className="section-intro">A closer look at the applications and systems I’ve built: what each one does, the parts I worked on and the technical decisions behind it.</p>
             </div>
+            {leaseGuardProject && <article className="featured-project">
+              <div className="featured-main">
+                <div className="featured-status"><span className="live-dot"/> IN PRODUCTION <span className="featured-divider">/</span> BLUCURSOR INFOTECH</div>
+                <h3>{leaseGuardProject.name}</h3>
+                <p className="featured-lede">A live document-processing platform used by leasing teams to review US tenant residency applications.</p>
+                <p className="featured-description">It classifies long, mixed-document PDFs, extracts form-specific data and checks state- and applicant-specific evidence requirements. Exceptions are surfaced for human review rather than being silently approved.</p>
+                <div className="featured-facts">
+                  <div><span>MY ROLE</span><strong>Gen AI Developer</strong></div>
+                  <div><span>DOCUMENTS</span><strong>50–150 page application bundles</strong></div>
+                  <div><span>CORE WORK</span><strong>Classification · extraction · rule validation</strong></div>
+                </div>
+                <div className="featured-tags">
+                  {["Vertex AI","Pydantic","Tesseract","Textract","JSON Logic","S3","SQS","LangGraph"].map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+                <button className="featured-link" onClick={() => setSelected(leaseGuardProject)}>Explore the project <ArrowUpRight size={15}/></button>
+              </div>
+              <aside className="featured-flow" aria-label="LeaseGuard AI processing stages">
+                <div className="flow-caption">HOW THE SYSTEM WORKS</div>
+                <div className="flow-step"><span>01</span><strong>Read documents</strong><small>OCR · classification</small></div>
+                <div className="flow-connector"/>
+                <div className="flow-step"><span>02</span><strong>Structure information</strong><small>Form-specific extraction</small></div>
+                <div className="flow-connector"/>
+                <div className="flow-step"><span>03</span><strong>Check requirements</strong><small>Conditional business rules</small></div>
+                <div className="flow-connector"/>
+                <div className="flow-step final"><span>04</span><strong>Review exceptions</strong><small>Leasing-agent workflow</small></div>
+                <div className="flow-foot">APPLICATION → VALIDATION → REVIEW</div>
+              </aside>
+            </article>}
             <div className="projects">
-              {projects.map((project) => (
+              {projects.filter((project) => project.name !== "LeaseGuard AI").map((project) => (
                 <article className="project-card" key={project.number}>
                   <div className="project-top">
                     <span className="project-index">/{project.number}</span>
