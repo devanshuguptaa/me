@@ -57,3 +57,8 @@
   .hero-panel{padding:19px}
   .panel-row{grid-template-columns:26px minmax(0,1fr);gap:8px}
 }
+
+.case-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0;padding:15px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-meta span{display:flex;flex-direction:column;gap:5px;color:#4f5848;font-size:12px}
+.case-meta b{color:#858d78;font:8px var(--mono);letter-spacing:1px}
+@media(max-width:520px){.case-meta{grid-template-columns:1fr;gap:12px}}
