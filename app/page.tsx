@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
-  ArrowUpRight, Github, Linkedin, Mail, MapPin, Menu, X
+  ArrowUpRight, Github, Linkedin, Mail, MapPin, Menu, Moon, Sun, X
 } from "lucide-react";
 
 const github = "https://github.com/devanshuguptaa";
@@ -146,6 +146,19 @@ const toolkit = [
 export default function Home() {
   const [selected, setSelected] = useState<(typeof projects)[number] | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const initialTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    setTheme(initialTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("portfolio-theme", nextTheme);
+    setTheme(nextTheme);
+  };
 
   useEffect(() => {
     if (!selected) return;
@@ -168,15 +181,27 @@ export default function Home() {
       <header className="topbar">
         <nav className="wrap nav" aria-label="Main navigation">
           <a className="brand" href="#top" aria-label="Devanshu Gupta home">DG<span>.</span></a>
-          <div className={"links " + (menuOpen ? "open" : "")}>
+          <div id="primary-navigation" className={"links " + (menuOpen ? "open" : "")}>
             <a href="#work" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
             <a href="#capabilities" onClick={() => setMenuOpen(false)}>Skills</a>
             <a href="#toolkit" onClick={() => setMenuOpen(false)}>Toolkit</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           </div>
-          <a className="nav-cta" href={gmailCompose} target="_blank" rel="noopener noreferrer">Contact <ArrowUpRight size={14}/></a>
-          <button className="mobile-toggle" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="nav-actions">
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={theme === "dark"}
+              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <Sun size={16}/> : <Moon size={16}/>}
+            </button>
+            <a className="nav-cta" href={gmailCompose} target="_blank" rel="noopener noreferrer">Contact <ArrowUpRight size={14}/></a>
+          </div>
+          <button className="mobile-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={19}/> : <Menu size={19}/>}
           </button>
         </nav>
