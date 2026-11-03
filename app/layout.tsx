@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Devanshu Gupta — Software Engineer | AI, ML & MLOps",
+  title: "Devanshu Gupta | Software Engineer",
   description:
-    "Software engineer building applied AI systems, machine learning workflows, document automation and full-stack applications.",
+    "Software engineer in Indore working on applied AI, document automation, model evaluation, backend services and machine-learning applications.",
   openGraph: {
-    title: "Devanshu Gupta — Software Engineer",
+    title: "Devanshu Gupta | Software Engineer",
     description:
-      "Applied AI, machine learning, backend engineering and product development.",
+      "Applied AI, document workflows, model evaluation and backend engineering.",
     type: "website"
   },
   robots: { index: true, follow: true }
