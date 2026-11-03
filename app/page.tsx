@@ -41,7 +41,6 @@ const projects = [
     category: "DOCUMENT AUTOMATION · PRODUCTION",
     year: "2025–26",
     role: "Gen AI Developer",
-    company: "BluCursor Infotech Pvt. Ltd.",
     status: "Production",
     headline: "Checking whether a residency application is complete—not just extracting its text.",
     description: "Worked on a production document-processing platform for US tenant residency applications. It handled 50–150-page application bundles, identified each form, extracted structured fields and checked whether state- and applicant-specific supporting documents were present and valid.",
@@ -230,7 +229,7 @@ export default function Home() {
             </div>
             {leaseGuardProject && <article className="featured-project">
               <div className="featured-main">
-                <div className="featured-status"><span className="live-dot"/> IN PRODUCTION <span className="featured-divider">/</span> BLUCURSOR INFOTECH</div>
+                <div className="featured-status"><span className="live-dot"/> IN PRODUCTION</div>
                 <h3>{leaseGuardProject.name}</h3>
                 <p className="featured-lede">A live document-processing platform used by leasing teams to review US tenant residency applications.</p>
                 <p className="featured-description">It classifies long, mixed-document PDFs, extracts form-specific data and checks state- and applicant-specific evidence requirements. Exceptions are surfaced for human review rather than being silently approved.</p>
@@ -369,7 +368,6 @@ export default function Home() {
             <p className="modal-summary"><strong>{selected.headline}</strong></p>
             {"role" in selected && <div className="case-meta">
               <span><b>ROLE</b>{selected.role}</span>
-              <span><b>COMPANY</b>{selected.company}</span>
               <span><b>STATUS</b>{selected.status}</span>
             </div>}
             <div className="modal-block"><span>OVERVIEW</span><p>{selected.description}</p></div>
