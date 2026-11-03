@@ -170,7 +170,7 @@ export default function Home() {
             <div className="hero-grid">
               <div className="hero-copy">
                 <div className="mono kicker">PYTHON · FASTAPI · TYPESCRIPT</div>
-                <h1>Software engineer<br/>building AI systems<br/><em>and backend products.</em></h1>
+                <h1>I build AI<br/>and backend<br/><em>software.</em></h1>
                 <p className="lead">I work mainly in Python and TypeScript, building document-processing pipelines, model-evaluation workflows and integrations for AI products. I pay attention to the parts that make them usable: reliable APIs, accurate outputs, permissions and clear failure paths.</p>
                 <div className="hero-actions">
                   <a className="button" href="#work">View projects <ArrowUpRight size={14}/></a>
