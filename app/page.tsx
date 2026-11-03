@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight, Github, Linkedin, Mail, MapPin, Menu, X
 } from "lucide-react";
@@ -42,7 +42,7 @@ const projects = [
     year: "2025–26",
     headline: "Extracting and validating tenant documents before downstream use.",
     description: "Worked on a document-intelligence pipeline for tenant-residency applications, covering document classification, extraction, rule validation and human review for uncertain results.",
-    proof: ["97% reported accuracy", "40% less manual effort", "30% higher throughput", "25% lower hallucination rate"],
+    proof: ["97% reported accuracy", "40% less manual effort", "30% higher throughput"],
     stack: ["Python", "LangGraph", "LangChain", "JSON Logic", "LLM Evaluation"],
     repo: "",
     detail: "The workflow classified incoming documents, extracted fields into Pydantic schemas, and applied JSON Logic checks for state-specific requirements. Preprocessing handled variation between document layouts; confidence gates routed uncertain cases to human review. OCR options included Tesseract for local processing and AWS Textract for hosted processing. Validated records could be exported through REST APIs and CSV. The pipeline shipped to production. The figures on this page are the outcomes recorded for the project: 97% accuracy, 40% less manual effort, 30% higher throughput and 25% lower hallucination rate."
@@ -98,7 +98,7 @@ const experience = [
     role: "Gen AI Developer",
     company: "BluCursor Infotech Pvt. Ltd.",
     location: "INDORE, MADHYA PRADESH, INDIA · ON-SITE",
-    copy: "Implemented document extraction and classification workflows with LangGraph and LangChain. Added JSON Logic validation and dynamic preprocessing; recorded outcomes included 97% accuracy, 40% less manual effort and 30% higher throughput. Also developed a Python evaluation pipeline that reduced hallucination rates by 25%."
+    copy: "Implemented document classification and extraction workflows with LangGraph and LangChain. Added dynamic preprocessing, JSON Logic validation and a Python evaluation pipeline, with uncertain outputs routed for review."
   },
   {
     date: "DEC 2024 — SEP 2025",
@@ -130,7 +130,7 @@ const toolkit = [
   },
   {
     number: "04",
-    title: "MLOps & production ML",
+    title: "MLOps foundations",
     description: "Tools and practices studied for versioning, experiment tracking, packaging, deployment and model monitoring.",
     topics: ["Git & GitHub", "DVC", "AWS S3", "MLflow", "CI/CD", "Docker", "FastAPI", "Kubernetes", "Prometheus", "Grafana", "AWS EKS", "DagsHub"],
     source: true
@@ -140,6 +140,22 @@ const toolkit = [
 export default function Home() {
   const [selected, setSelected] = useState<(typeof projects)[number] | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!selected) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelected(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selected]);
 
   return (
     <>
