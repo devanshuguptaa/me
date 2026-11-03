@@ -192,7 +192,7 @@ export default function Home() {
             </div>
             <div className="hero-grid">
               <div className="hero-copy">
-                <div className="identity-line"><img src="/devanshu-gupta.jpg" alt="Devanshu Gupta" width="76" height="76"/><div><span className="identity-overline mono">SOFTWARE ENGINEER</span><strong>Devanshu Gupta</strong></div></div>
+                <div className="identity-line"><img src="/devanshu-gupta.jpg" alt="Devanshu Gupta" width="112" height="112"/><div><span className="identity-overline mono">SOFTWARE ENGINEER</span><strong>Devanshu Gupta</strong></div></div>
                 <div className="mono kicker">PYTHON · FASTAPI · TYPESCRIPT</div>
                 <h1>I build AI<br/>and backend<br/><em>software.</em></h1>
                 <p className="lead">I work mainly in Python and TypeScript, building document-processing pipelines, model-evaluation workflows and integrations for AI products. I pay attention to the parts that make them usable: reliable APIs, accurate outputs, permissions and clear failure paths.</p>
