@@ -37,15 +37,18 @@ const projects = [
   },
   {
     number: "03",
-    name: "Document Intelligence",
-    category: "GENAI · DOCUMENT AUTOMATION",
+    name: "LeaseGuard AI",
+    category: "DOCUMENT AUTOMATION · PRODUCTION",
     year: "2025–26",
-    headline: "Extracting and validating tenant documents before downstream use.",
-    description: "Worked on a document-intelligence pipeline for tenant-residency applications, covering document classification, extraction, rule validation and human review for uncertain results.",
-    proof: ["97% reported accuracy", "40% less manual effort", "30% higher throughput"],
-    stack: ["Python", "LangGraph", "LangChain", "JSON Logic", "LLM Evaluation"],
+    headline: "Checking whether a residency application is complete—not just extracting its text.",
+    description: "Worked on a production document-processing platform for US tenant residency applications. It handled 50–150-page application bundles, identified each form, extracted structured fields and checked whether state- and applicant-specific supporting documents were present and valid.",
+    proof: ["50–150 page application bundles", "State-specific rule validation", "Asynchronous processing with SQS", "Human review for exceptions"],
+    stack: ["Python", "Google Vertex AI", "Pydantic", "Tesseract OCR", "AWS Textract", "JSON Logic", "Amazon S3", "Amazon SQS", "LangChain", "LangGraph", "REST APIs"],
     repo: "",
-    detail: "The workflow classified incoming documents, extracted fields into Pydantic schemas, and applied JSON Logic checks for state-specific requirements. Preprocessing handled variation between document layouts; confidence gates routed uncertain cases to human review. OCR options included Tesseract for local processing and AWS Textract for hosted processing. Validated records could be exported through REST APIs and CSV. The pipeline shipped to production. The figures on this page are the outcomes recorded for the project: 97% accuracy, 40% less manual effort, 30% higher throughput and 25% lower hallucination rate."
+    pipeline: "PDF submission → Amazon S3 storage with a UUID → paginated OCR using Tesseract or AWS Textract → Vertex AI document classification → form-specific Pydantic extraction → Python preprocessing and normalization → JSON Logic and prompt-based validation → SQS-backed stage hand-offs → database and REST API results → leasing-agent review.",
+    challenge: "A single PDF could contain several different forms, financial records, court orders, scanned pages, tables and handwritten content. The required evidence also changed with the applicant’s state, income and marital status. The difficult part was connecting those facts to the correct document requirements, while treating documents with expiry rules differently from permanent records such as birth certificates and court orders.",
+    evaluation: "We used a separate LLM validation pass as an additional check, not as ground truth. Extraction quality was measured against manually verified data using precision, recall and percentage accuracy. A cost calculator tracked classification, extraction, preprocessing, rule processing and the separate validation call.",
+    detail: "OCR handled scanned and image-based pages. Vertex AI classified forms using form-specific descriptions, and each form type had its own Pydantic extraction schema. Python preprocessing normalized extracted values before multiple JSON Logic configurations evaluated conditional requirements. Failed rules, low-confidence extraction, blurry documents and notarized records requiring human verification were surfaced in the admin panel. SQS connected the classification, extraction, preprocessing and validation stages asynchronously, with intermediate JSON results available through the database and APIs. The application exposed missing documents and failed requirements so leasing agents did not have to manually inspect every page."
   },
   {
     number: "04",
@@ -334,7 +337,10 @@ export default function Home() {
             <h2 id="modal-title">{selected.name}</h2>
             <p className="modal-summary"><strong>{selected.headline}</strong></p>
             <div className="modal-block"><span>OVERVIEW</span><p>{selected.description}</p></div>
+            {"pipeline" in selected && <div className="modal-block"><span>PROCESSING PIPELINE</span><p>{selected.pipeline}</p></div>}
+            {"challenge" in selected && <div className="modal-block"><span>ENGINEERING CHALLENGE</span><p>{selected.challenge}</p></div>}
             <div className="modal-block"><span>IMPLEMENTATION</span><p>{selected.detail}</p></div>
+            {"evaluation" in selected && <div className="modal-block"><span>EVALUATION &amp; COST</span><p>{selected.evaluation}</p></div>}
             <div className="chips">{selected.stack.map((item) => <span className="chip" key={item}>{item}</span>)}</div>
             {selected.repo && <a className="button" href={selected.repo} target="_blank" rel="noreferrer">Inspect source code <ArrowUpRight size={14}/></a>}
           </section>
