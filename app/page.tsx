@@ -7,8 +7,9 @@ import {
 } from "lucide-react";
 
 const github = "https://github.com/devanshuguptaa";
-const linkedin = "https://www.linkedin.com/in/devanshuguptaa92161729";
+const linkedin = "https://in.linkedin.com/in/devanshuguptaa92161729/";
 const email = "devanshugupta1729@gmail.com";
+const gmailCompose = "https://mail.google.com/mail/?view=cm&fs=1&to=devanshugupta1729%40gmail.com";
 
 const projects = [
   {
@@ -159,7 +160,7 @@ export default function Home() {
             <a href="#toolkit" onClick={() => setMenuOpen(false)}>Toolkit</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           </div>
-          <a className="nav-cta" href={"mailto:" + email}>Contact <ArrowUpRight size={14}/></a>
+          <a className="nav-cta" href={gmailCompose} target="_blank" rel="noopener noreferrer">Contact <ArrowUpRight size={14}/></a>
           <button className="mobile-toggle" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={19}/> : <Menu size={19}/>}
           </button>
@@ -183,9 +184,9 @@ export default function Home() {
                   <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={14}/></a>
                 </div>
                 <div className="hero-links">
-                  <a href={linkedin} target="_blank" rel="noreferrer"><Linkedin size={13}/> LinkedIn <ArrowUpRight size={12}/></a>
+                  <a href={linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={13}/> LinkedIn <ArrowUpRight size={12}/></a>
                   <a href={github} target="_blank" rel="noreferrer"><Github size={13}/> GitHub <ArrowUpRight size={12}/></a>
-                  <a href={"mailto:" + email}><Mail size={13}/> Email</a>
+                  <a href={gmailCompose} target="_blank" rel="noopener noreferrer"><Mail size={13}/> Email</a>
                 </div>
               </div>
               <div className="hero-art" aria-label="Abstract system diagram showing data, tools, context and output">
@@ -336,8 +337,8 @@ export default function Home() {
           <div className="wrap contact-grid">
             <div><div className="mono section-kicker">06 — Contact</div><h2>Let’s discuss<br/>what needs building.</h2><p>I’m interested in engineering teams working on practical AI products, machine learning systems and software where strong implementation matters.</p></div>
             <div className="contact-actions">
-              <a className="button" href={"mailto:" + email}>Email <Mail size={14}/></a>
-              <a className="button secondary" href={linkedin} target="_blank" rel="noreferrer">LinkedIn <Linkedin size={14}/></a>
+              <a className="button" href={gmailCompose} target="_blank" rel="noopener noreferrer">Email <Mail size={14}/></a>
+              <a className="button secondary" href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Linkedin size={14}/></a>
               <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={14}/></a>
             </div>
           </div>
