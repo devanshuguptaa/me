@@ -72,7 +72,7 @@ const experience = [
     date: "MAY — OCT 2026",
     role: "Software Developer Engineer",
     company: "Data Annotation",
-    location: "REMOTE · INDIA",
+    location: "NEW YORK, NEW YORK, USA · REMOTE",
     copy: "Created coding tasks and adversarial edge cases to test how language models handle practical software-engineering work. Reviewed generated solutions for correctness, reasoning and instruction adherence, then documented reproducible defects and failure patterns."
   },
   {
