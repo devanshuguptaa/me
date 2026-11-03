@@ -12,84 +12,135 @@ const email = "devanshugupta1729@gmail.com";
 
 const projects = [
   {
-    n: "01", title: "Converge AI", type: "AI PRODUCT · MCP · RAG", year: "2026",
-    hook: "A useful assistant should understand the work around the conversation.",
-    description: "A Slack-native assistant connecting conversations to Gmail and Google Calendar, with retrieval and memory to carry context forward.",
-    proof: ["21 connected tools", "Slack · Gmail · Calendar", "RAG + persistent memory"],
+    number: "01",
+    name: "Converge AI",
+    category: "AI PRODUCT · MCP · RAG",
+    year: "2026",
+    headline: "A Slack assistant connected to the tools people already use.",
+    description: "Built a Slack-based assistant that handles Gmail and Calendar actions, searches indexed workspace history, and retains useful context between sessions.",
+    proof: ["21 integrated tools", "Slack · Gmail · Calendar", "RAG + long-term memory"],
     stack: ["Python", "FastAPI", "Gemini", "MCP", "ChromaDB", "Mem0"],
-    repo: github + "/Converge-AI", icon: Workflow,
-    detail: "Combines Slack event handling, tool execution, semantic retrieval and long-term user context. The repository documents scoped tool access, Gmail and Calendar actions, ChromaDB retrieval and Mem0-backed memory."
+    repo: github + "/Converge-AI",
+    icon: Workflow,
+    detail: "The service receives Slack events through Socket Mode and uses FastAPI to coordinate the request. Gemini interprets intent, while MCP keeps tool definitions separate from their execution. ChromaDB retrieves relevant Slack history and Mem0 stores longer-term user context. Connected actions include reading, drafting and sending email, and listing or creating calendar events."
   },
   {
-    n: "02", title: "Angel — Realtime Voice", type: "VOICE AI · FULL STACK", year: "2026",
-    hook: "Keep the product stable while the model provider changes.",
-    description: "A mobile-first voice AI application designed around a unified interface for realtime conversations with switchable model providers.",
-    proof: ["Two provider paths", "WebRTC + WebSocket", "Server-side API keys"],
-    stack: ["Next.js", "TypeScript", "FastAPI", "OpenAI Realtime", "Gemini Live"],
-    repo: github + "/real-time-voice", icon: Mic2,
-    detail: "Separates provider-specific realtime connections behind a shared application interface. Permanent API keys remain on the backend; the repository documents frontend/backend setup and deployment."
+    number: "02",
+    name: "Angel — Realtime Voice",
+    category: "VOICE AI · FULL STACK",
+    year: "2026",
+    headline: "One voice interface with two realtime model providers.",
+    description: "Developed a mobile-first voice application with a Next.js frontend and FastAPI backend. Provider selection keeps the application interface consistent while the realtime transport changes.",
+    proof: ["OpenAI Realtime + Gemini Live", "WebRTC + WebSocket", "Server-side API keys"],
+    stack: ["Next.js", "TypeScript", "FastAPI", "WebRTC", "WebSocket"],
+    repo: github + "/real-time-voice",
+    icon: Mic2,
+    detail: "The application supports OpenAI Realtime through WebRTC and Gemini Live through WebSockets. Provider configuration is handled on the server, and permanent API keys stay out of the browser. The repository includes separate frontend and backend setup and deployment instructions."
   },
   {
-    n: "03", title: "Document Intelligence", type: "GENAI · DOCUMENT SYSTEMS", year: "2025–26",
-    hook: "Extraction is only useful when the result can be trusted.",
-    description: "At BluCursor, worked on document extraction and classification workflows with validation and evaluation built into the pipeline.",
-    proof: ["97% reported accuracy", "40% less manual effort", "25% lower hallucination rate"],
+    number: "03",
+    name: "Document Intelligence",
+    category: "GENAI · DOCUMENT AUTOMATION",
+    year: "2025–26",
+    headline: "Extraction, validation and evaluation in one document workflow.",
+    description: "At BluCursor, implemented document extraction and classification with LangGraph and LangChain. Added JSON Logic validation and dynamic preprocessing to reduce manual review and improve throughput.",
+    proof: ["97% reported accuracy", "40% less manual effort", "30% higher throughput", "25% lower hallucination rate"],
     stack: ["Python", "LangGraph", "LangChain", "JSON Logic", "LLM Evaluation"],
-    repo: "", icon: Layers3,
-    detail: "Combined automated extraction and classification with JSON Logic validation, alongside a Python evaluation pipeline. Metrics are reported from the resume; detailed baseline and measurement methodology can be shared when available."
+    repo: "",
+    icon: Layers3,
+    detail: "Work covered extraction and classification orchestration, preprocessing for varied client datasets, and JSON Logic checks to validate structured outputs. Dynamic logic gates increased data throughput. A separate Python evaluation pipeline measured generated outputs against client requirements and reduced hallucination rates. The outcome figures shown are the results recorded in the resume."
   },
   {
-    n: "04", title: "Ransomware Detection", type: "MACHINE LEARNING · EXPLAINABILITY", year: "2025",
-    hook: "A prediction is stronger when a person can inspect the reason.",
-    description: "A static-feature ML workflow for ransomware detection, with imbalance handling, feature analysis and local explanations.",
+    number: "04",
+    name: "Ransomware Detection",
+    category: "MACHINE LEARNING · EXPLAINABILITY",
+    year: "2025",
+    headline: "A model workflow that exposes the reasoning behind predictions.",
+    description: "Built a Streamlit application for ransomware detection from static file features, combining class-imbalance handling, feature analysis, Random Forest classification and local explanations.",
     proof: ["Random Forest", "SMOTE-Tomek", "LIME explanations"],
     stack: ["Python", "Scikit-learn", "Streamlit", "LIME", "Pandas"],
-    repo: github + "/ransomware-detection", icon: ShieldCheck,
-    detail: "The repository describes dataset exploration, class-distribution analysis, IV/WoE feature analysis, correlation review, Random Forest evaluation and LIME explanations for individual predictions."
+    repo: github + "/ransomware-detection",
+    icon: ShieldCheck,
+    detail: "The application includes dataset and label-distribution exploration, correlation analysis, Information Value / Weight of Evidence feature analysis, Random Forest training and evaluation, SMOTE-Tomek resampling, and LIME explanations for individual predictions. No unsupported accuracy figure is presented."
   },
   {
-    n: "05", title: "Email MCP Agent", type: "AGENT SYSTEMS · INTEGRATIONS", year: "2024–25",
-    hook: "Turn natural-language intent into controlled business actions.",
-    description: "A FastAPI microservice connecting Gemini-driven intent understanding to Gmail and Calendar workflows, with per-user conversation memory.",
-    proof: ["OAuth-based Google APIs", "Email + Calendar actions", "Session-scoped memory"],
+    number: "05",
+    name: "Email MCP Agent",
+    category: "AGENT SYSTEMS · INTEGRATIONS",
+    year: "2024–25",
+    headline: "An API service for email and calendar workflows.",
+    description: "Built a FastAPI service that uses Gemini to interpret requests and invoke Gmail or Google Calendar operations, with conversation context stored per session.",
+    proof: ["OAuth-secured Google APIs", "Email + Calendar actions", "Session-scoped memory"],
     stack: ["Python", "FastAPI", "Gemini", "MCP", "SQLite"],
-    repo: github + "/Email-MCP-Agent", icon: BrainCircuit,
-    detail: "Documents email listing, reading, search, drafting and sending; Calendar event listing and creation; and SQLite-backed conversational context. Its README notes that an upstream caller is expected to handle authentication."
+    repo: github + "/Email-MCP-Agent",
+    icon: BrainCircuit,
+    detail: "The service supports email listing, message details, search, draft creation and sending, alongside calendar-event listing and creation. LangGraph structures the agent flow and SQLite stores session context. The repository documents that the upstream application is responsible for user authentication."
   },
   {
-    n: "06", title: "Collaborative Comment System", type: "FULL STACK · REALTIME", year: "2025",
-    hook: "A small collaboration feature is a distributed system in miniature.",
-    description: "A realtime commenting application with session-based authentication, REST APIs, Socket.IO updates and typing indicators.",
-    proof: ["Realtime updates", "PostgreSQL + Redis", "Session-based auth"],
-    stack: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Redis"],
-    repo: github + "/collaborative-comment-system", icon: Terminal,
-    detail: "The repository describes a separated frontend/backend architecture, registration and login flows, comment CRUD, cached comment reads, websocket events and live typing indicators."
+    number: "06",
+    name: "Collaborative Comment System",
+    category: "FULL STACK · REALTIME",
+    year: "2025",
+    headline: "Comments and presence updates shared across clients.",
+    description: "Built a full-stack commenting application with session-based authentication, REST endpoints and Socket.IO events for live comments and typing indicators.",
+    proof: ["Realtime updates", "PostgreSQL + Redis", "Session-based authentication"],
+    stack: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Redis", "Socket.IO"],
+    repo: github + "/collaborative-comment-system",
+    icon: Terminal,
+    detail: "The repository documents a Next.js and TypeScript frontend with an Express backend, PostgreSQL persistence, Redis-backed session and cache support, and Socket.IO events. Core flows include registration, login, comment creation and retrieval, live comment updates, and typing status."
   }
 ];
 
 const experience = [
   {
-    date: "MAY — OCT 2026", role: "Software Developer Engineer", company: "Data Annotation",
+    date: "MAY — OCT 2026",
+    role: "Software Developer Engineer",
+    company: "Data Annotation",
     location: "REMOTE · INDIA",
-    copy: "Designed coding tasks and edge cases to evaluate LLM performance on practical software-development problems. Investigated model failures and documented reproducible bugs, reasoning gaps and instruction-following issues."
+    copy: "Created coding tasks and adversarial edge cases to test how language models handle practical software-engineering work. Reviewed generated solutions for correctness, reasoning and instruction adherence, then documented reproducible defects and failure patterns."
   },
   {
-    date: "DEC 2025 — MAY 2026", role: "Gen AI Developer", company: "BluCursor Infotech Pvt. Ltd.",
+    date: "DEC 2025 — MAY 2026",
+    role: "Gen AI Developer",
+    company: "BluCursor Infotech Pvt. Ltd.",
     location: "INDORE, MADHYA PRADESH, INDIA · ON-SITE",
-    copy: "Built document extraction and classification workflows, added rule-based validation and developed an LLM evaluation pipeline to improve reliability across client requirements."
+    copy: "Implemented document extraction and classification workflows with LangGraph and LangChain. Added JSON Logic validation and dynamic preprocessing; recorded outcomes included 97% accuracy, 40% less manual effort and 30% higher throughput. Also developed a Python evaluation pipeline that reduced hallucination rates by 25%."
   },
   {
-    date: "DEC 2024 — SEP 2025", role: "Founding Engineer", company: "Advanced Intelligence Ventures",
+    date: "DEC 2024 — SEP 2025",
+    role: "Founding Engineer",
+    company: "Advanced Intelligence Ventures",
     location: "ORLANDO, FLORIDA, USA · REMOTE",
-    copy: "Built an MCP-based email agent using OAuth-secured Gmail APIs and LLM-driven intent reasoning. Designed modular tools for email and calendar workflows in a multi-agent architecture."
+    copy: "Developed an MCP-based email agent using OAuth-secured Gmail APIs and LLM-driven intent reasoning. Implemented tool-calling flows for email triage and responses, and designed a modular service that could extend to calendar and document workflows."
   }
 ];
 
 const toolkit = [
-  { title: "Mathematical foundations", sub: "The quantitative building blocks behind ML.", tags: ["Linear Algebra", "Calculus", "Probability", "Statistics"] },
-  { title: "Machine learning algorithms", sub: "Core supervised and unsupervised methods.", tags: ["Linear Regression", "Logistic Regression", "Decision Trees", "Random Forest", "SVM", "KNN", "Naive Bayes", "Gradient Boosting", "XGBoost", "K-Means", "DBSCAN", "PCA"] },
-  { title: "Optimization methods", sub: "Methods used to minimize loss and update parameters.", tags: ["Gradient Descent", "SGD", "Mini-batch GD", "Momentum", "RMSProp", "Adam"] },
-  { title: "MLOps & production ML", sub: "Self-directed learning in reproducibility, deployment and monitoring.", tags: ["Git & GitHub", "DVC", "AWS S3", "MLflow", "CI/CD", "Docker", "FastAPI", "Kubernetes", "Prometheus", "Grafana", "AWS EKS", "DagsHub"], source: true }
+  {
+    number: "01",
+    title: "Mathematical foundations",
+    description: "Quantitative foundations used in data science and machine learning.",
+    topics: ["Linear Algebra", "Calculus", "Probability", "Statistics"]
+  },
+  {
+    number: "02",
+    title: "Machine learning algorithms",
+    description: "Common supervised, unsupervised and dimensionality-reduction methods.",
+    topics: ["Linear Regression", "Logistic Regression", "Decision Trees", "Random Forest", "Support Vector Machines", "K-Nearest Neighbors", "Naive Bayes", "Gradient Boosting", "XGBoost", "K-Means", "DBSCAN", "PCA"]
+  },
+  {
+    number: "03",
+    title: "Optimization methods",
+    description: "Algorithms used to update model parameters and minimize objective functions.",
+    topics: ["Gradient Descent", "Stochastic Gradient Descent", "Mini-batch GD", "Momentum", "RMSProp", "Adam"]
+  },
+  {
+    number: "04",
+    title: "MLOps & production ML",
+    description: "Self-directed learning in experiment tracking, versioning, deployment and model monitoring.",
+    topics: ["Git & GitHub", "DVC", "AWS S3", "MLflow", "CI/CD", "Docker", "FastAPI", "Kubernetes", "Prometheus", "Grafana", "AWS EKS", "DagsHub"],
+    source: true
+  }
 ];
 
 export default function Home() {
@@ -99,71 +150,112 @@ export default function Home() {
   return (
     <>
       <header className="topbar">
-        <nav className="wrap nav">
-          <a className="brand" href="#top">DG<span>.</span></a>
-          <div className={`links ${menuOpen ? "open" : ""}`}>
-            <a href="#work" onClick={() => setMenuOpen(false)}>Selected work</a>
+        <nav className="wrap nav" aria-label="Main navigation">
+          <a className="brand" href="#top" aria-label="Devanshu Gupta home">DG<span>.</span></a>
+          <div className={"links " + (menuOpen ? "open" : "")}>
+            <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
             <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
             <a href="#capabilities" onClick={() => setMenuOpen(false)}>Capabilities</a>
             <a href="#toolkit" onClick={() => setMenuOpen(false)}>Toolkit</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           </div>
-          <a className="nav-cta" href={`mailto:${email}`}>Let’s talk <ArrowUpRight size={14}/></a>
-          <button className="mobile-toggle" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</button>
+          <a className="nav-cta" href={"mailto:" + email}>Contact <ArrowUpRight size={14}/></a>
+          <button className="mobile-toggle" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={19}/> : <Menu size={19}/>}
+          </button>
         </nav>
       </header>
 
       <main id="top">
         <section className="hero">
           <div className="wrap">
+            <div className="hero-meta">
+              <div className="eyebrow"><span className="dot"/> SOFTWARE ENGINEER · APPLIED AI · MACHINE LEARNING</div>
+              <div className="hero-location"><MapPin size={12}/> INDORE, INDIA</div>
+            </div>
             <div className="hero-grid">
-              <div>
-                <div className="eyebrow"><span className="dot"/> SOFTWARE ENGINEER · APPLIED AI · MACHINE LEARNING</div>
-                <h1>I build systems<br/>that make work<br/><em>move forward.</em></h1>
-                <p className="lead">I work across applied AI, machine learning and backend engineering — turning complex workflows into useful, dependable software.</p>
+              <div className="hero-copy">
+                <div className="mono kicker">AI systems · backend engineering · product development</div>
+                <h1>Engineering<br/>useful AI and<br/><em>reliable software.</em></h1>
+                <p className="lead">I’m a software engineer working across applied AI, machine learning and backend development. My work includes document-processing pipelines, LLM evaluation workflows, MCP integrations and realtime applications — with a focus on building the system behind the feature.</p>
                 <div className="hero-actions">
-                  <a className="button" href="#work">Explore selected work <ArrowDown size={15}/></a>
-                  <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={15}/></a>
+                  <a className="button" href="#work">Selected work <ArrowDown size={14}/></a>
+                  <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={14}/></a>
+                </div>
+                <div className="hero-links">
+                  <a href={linkedin} target="_blank" rel="noreferrer"><Linkedin size={13}/> LinkedIn <ArrowUpRight size={12}/></a>
+                  <a href={github} target="_blank" rel="noreferrer"><Github size={13}/> GitHub <ArrowUpRight size={12}/></a>
+                  <a href={"mailto:" + email}><Mail size={13}/> Email</a>
                 </div>
               </div>
-              <aside className="hero-note">
-                <strong>Currently open to opportunities</strong>
-                Looking for engineering roles where I can build practical AI products, reliable services and systems that solve real problems.
-                <br/><br/><span className="pill-note"><MapPin size={12}/> Indore, India · Remote-ready</span>
-              </aside>
+              <div className="hero-art" aria-label="Abstract system diagram showing data, tools, context and output">
+                <div className="art-label art-label-top">FIG. 01 — SYSTEMS IN MOTION</div>
+                <svg className="systems-art" viewBox="0 0 520 470" role="img" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="core" cx="35%" cy="30%">
+                      <stop offset="0%" stopColor="#e4e7cc"/>
+                      <stop offset="100%" stopColor="#839071"/>
+                    </radialGradient>
+                  </defs>
+                  <circle cx="260" cy="235" r="74" fill="none" stroke="#9ca68d" strokeOpacity=".42"/>
+                  <circle cx="260" cy="235" r="132" fill="none" stroke="#c2c9aa" strokeOpacity=".36" strokeDasharray="3 8"/>
+                  <circle cx="260" cy="235" r="190" fill="none" stroke="#c2c9aa" strokeOpacity=".25" strokeDasharray="2 9"/>
+                  <circle cx="260" cy="235" r="43" fill="url(#core)"/>
+                  <circle cx="260" cy="235" r="7" fill="#f0f0dc"/>
+                  <path d="M260 43V192M260 278V427M68 235H217M303 235H452" stroke="#bcc6a5" strokeOpacity=".24" strokeDasharray="3 8"/>
+                  <circle cx="125" cy="119" r="4" fill="#d7dfbf"/><circle cx="391" cy="126" r="4" fill="#d7dfbf"/>
+                  <circle cx="116" cy="337" r="4" fill="#d7dfbf"/><circle cx="405" cy="340" r="4" fill="#d7dfbf"/>
+                  <circle cx="260" cy="43" r="3" fill="#d7dfbf"/><circle cx="260" cy="427" r="3" fill="#d7dfbf"/>
+                  <text x="90" y="103" fill="#a6b096" fontSize="10" letterSpacing="2">INPUT</text>
+                  <text x="402" y="111" fill="#a6b096" fontSize="10" letterSpacing="2">TOOLS</text>
+                  <text x="78" y="361" fill="#a6b096" fontSize="10" letterSpacing="2">DATA</text>
+                  <text x="407" y="365" fill="#a6b096" fontSize="10" letterSpacing="2">OUTPUT</text>
+                  <text x="260" y="22" fill="#a6b096" fontSize="9" textAnchor="middle" letterSpacing="2">CONTEXT</text>
+                  <text x="260" y="453" fill="#a6b096" fontSize="9" textAnchor="middle" letterSpacing="2">SYSTEM</text>
+                </svg>
+                <div className="art-label art-label-bottom"><span>01 / 06</span><span>THOUGHT → SYSTEM → OUTCOME</span></div>
+              </div>
             </div>
-            <div className="signal-row">
-              <span className="signal"><b>01 /</b> AI & LLM systems</span>
-              <span className="signal"><b>02 /</b> Machine learning</span>
-              <span className="signal"><b>03 /</b> Backend engineering</span>
-              <span className="signal"><b>04 /</b> Product execution</span>
-            </div>
+            <div className="hero-foot"><span>SCROLL TO EXPLORE</span><span className="scroll-line"/><span>PORTFOLIO / 2026</span></div>
           </div>
         </section>
 
-        <section className="section" id="work">
+        <div className="signal-strip">
+          <div className="signal-inner">
+            <span>BUILT AROUND REAL PROBLEMS</span><b>AI SYSTEMS</b><i/> <b>BACKEND ENGINEERING</b><i/> <b>MACHINE LEARNING</b><i/> <b>RELIABLE EXECUTION</b>
+          </div>
+        </div>
+
+        <section className="section work-section" id="work">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">01 — Selected work</div><h2>Built to solve<br/>specific problems.</h2></div>
-              <p className="section-intro">A closer look at the systems, decisions and engineering behind the work. Open a project to explore its approach and implementation.</p>
+              <div><div className="mono section-kicker">01 — Selected work</div><h2>Projects with<br/>a clear purpose.</h2></div>
+              <p className="section-intro">A selection of AI, machine-learning and software projects. Each entry describes the problem, implementation and verifiable source where available.</p>
             </div>
             <div className="projects">
-              {projects.map((p) => {
-                const Icon = p.icon;
+              {projects.map((project) => {
+                const Icon = project.icon;
                 return (
-                  <article className="project-card" key={p.n}>
-                    <div className="project-top"><span className="project-index">/{p.n}</span><span className="project-category">{p.type}</span><span className="project-year">{p.year}</span></div>
+                  <article className="project-card" key={project.number}>
+                    <div className="project-top">
+                      <span className="project-index">/{project.number}</span>
+                      <span className="project-category">{project.category}</span>
+                      <span className="project-year">{project.year}</span>
+                    </div>
                     <div className="project-visual">
                       <div className="visual-orbit"/><div className="visual-orbit orbit-two"/>
-                      <div className="visual-core"><Icon size={34} strokeWidth={1.4}/></div>
-                      <span className="visual-caption">SYSTEM / {p.n}</span><span className="visual-node node-a"/><span className="visual-node node-b"/><span className="visual-node node-c"/>
+                      <div className="visual-core"><Icon size={31} strokeWidth={1.35}/></div>
+                      <span className="visual-caption">PROJECT / {project.number}</span>
+                      <span className="visual-node node-a"/><span className="visual-node node-b"/><span className="visual-node node-c"/>
                     </div>
                     <div className="project-content">
-                      <h3>{p.title}</h3><h4>{p.hook}</h4><p>{p.description}</p>
-                      <div className="proof-row">{p.proof.map((item) => <span key={item}>{item}</span>)}</div>
+                      <h3>{project.name}</h3>
+                      <h4>{project.headline}</h4>
+                      <p>{project.description}</p>
+                      <div className="proof-row">{project.proof.map((item) => <span key={item}>{item}</span>)}</div>
                       <div className="project-bottom">
-                        <div className="tag-row">{p.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}</div>
-                        <button className="text-link" onClick={() => setSelected(p)}>Explore project <ArrowUpRight size={15}/></button>
+                        <div className="tag-row">{project.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}</div>
+                        <button className="text-link" onClick={() => setSelected(project)}>Project details <ArrowUpRight size={14}/></button>
                       </div>
                     </div>
                   </article>
@@ -176,8 +268,8 @@ export default function Home() {
         <section className="section" id="experience">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">02 — Experience</div><h2>Where I’ve<br/>done the work.</h2></div>
-              <p className="section-intro">Experience across AI product development, evaluation and early-stage engineering — with distributed teams and on-site collaboration.</p>
+              <div><div className="mono section-kicker">02 — Experience</div><h2>Teams and<br/>responsibilities.</h2></div>
+              <p className="section-intro">Roles spanning model evaluation, document automation and founding-stage product engineering. Locations and working arrangements are shown alongside each team.</p>
             </div>
             <div className="experience-list">
               {experience.map((item) => (
@@ -185,7 +277,7 @@ export default function Home() {
                   <div className="exp-date">{item.date}</div>
                   <div className="exp-main">
                     <div><div className="exp-role">{item.role}</div><div className="exp-company">{item.company}</div></div>
-                    <div className="exp-location">{item.location}</div>
+                    <div className="exp-location"><MapPin size={13}/><span>{item.location}</span></div>
                     <p className="exp-copy">{item.copy}</p>
                   </div>
                 </article>
@@ -197,13 +289,13 @@ export default function Home() {
         <section className="section" id="capabilities">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">03 — Capabilities</div><h2>From model logic<br/>to working product.</h2></div>
-              <p className="section-intro">I enjoy working across boundaries — understanding the problem, choosing a practical approach and taking it through implementation.</p>
+              <div><div className="mono section-kicker">03 — Capabilities</div><h2>Work across<br/>the stack.</h2></div>
+              <p className="section-intro">My experience connects model capabilities to software delivery: retrieval and orchestration, service design, integrations, evaluation and user-facing applications.</p>
             </div>
             <div className="cap-grid">
-              <article className="cap"><div className="cap-num">CAPABILITY / 01</div><h3>AI systems that do work</h3><p>RAG, tool calling, MCP integrations, agent workflows and evaluation — designed around the job the system needs to finish.</p></article>
-              <article className="cap"><div className="cap-num">CAPABILITY / 02</div><h3>Backend-first engineering</h3><p>Python, FastAPI, API design, integrations, data flow and the operational details that make a feature dependable.</p></article>
-              <article className="cap"><div className="cap-num">CAPABILITY / 03</div><h3>Interfaces that close the loop</h3><p>Next.js, TypeScript and React — turning complex backend capabilities into usable product experiences.</p></article>
+              <article className="cap"><div className="cap-num">CAPABILITY / 01</div><h3>Applied AI &amp; LLM systems</h3><p>RAG pipelines, semantic retrieval, tool calling, MCP integrations and evaluation workflows for applications that need more than a chat interface.</p></article>
+              <article className="cap"><div className="cap-num">CAPABILITY / 02</div><h3>Backend &amp; integration engineering</h3><p>Python, FastAPI, API design, OAuth integrations, data processing and service boundaries that keep application logic maintainable.</p></article>
+              <article className="cap"><div className="cap-num">CAPABILITY / 03</div><h3>Machine learning &amp; product delivery</h3><p>Classical ML, model evaluation and explainability, paired with React, Next.js and TypeScript interfaces.</p></article>
             </div>
           </div>
         </section>
@@ -211,15 +303,15 @@ export default function Home() {
         <section className="section" id="toolkit">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">04 — Engineering toolkit</div><h2>Fundamentals, models<br/>and production.</h2></div>
-              <p className="section-intro">A foundation in the mathematics and algorithms behind ML, alongside tools used to build and operate software systems.</p>
+              <div><div className="mono section-kicker">04 — Engineering toolkit</div><h2>Maths, models<br/>and operations.</h2></div>
+              <p className="section-intro">Quantitative foundations, commonly used machine-learning algorithms and optimization methods, alongside MLOps topics studied through a structured course.</p>
             </div>
             <div className="toolkit-grid">
-              {toolkit.map((group, i) => (
-                <article className="tool-card" key={group.title}>
-                  <div className="tool-card-head"><span className="tool-number">/0{i + 1}</span><div><h3>{group.title}</h3><p>{group.sub}</p></div></div>
-                  <div className="chips">{group.tags.map((tag) => <span className="chip" key={tag}>{tag}</span>)}</div>
-                  {group.source && <a className="source-link" href="https://www.youtube.com/playlist?list=PLupK5DK91flV45dkPXyGViMLtHadRr6sp" target="_blank" rel="noreferrer">Learning source: MLOps course playlist <ExternalLink size={13}/></a>}
+              {toolkit.map((group) => (
+                <article className="tool-card" key={group.number}>
+                  <div className="tool-card-head"><span className="tool-number">/{group.number}</span><div><h3>{group.title}</h3><p>{group.description}</p></div></div>
+                  <div className="chips">{group.topics.map((topic) => <span className="chip" key={topic}>{topic}</span>)}</div>
+                  {group.source && <a className="source-link" href="https://www.youtube.com/playlist?list=PLupK5DK91flV45dkPXyGViMLtHadRr6sp" target="_blank" rel="noreferrer">MLOps learning playlist <ExternalLink size={13}/></a>}
                 </article>
               ))}
             </div>
@@ -229,8 +321,8 @@ export default function Home() {
         <section className="section" id="about">
           <div className="wrap">
             <div className="section-head">
-              <div><div className="mono section-kicker">05 — Education</div><h2>Grounded in<br/>computer science.</h2></div>
-              <p className="section-intro">Computer Science with a Data Science major — a mix of software engineering, analytical thinking and mathematical foundations.</p>
+              <div><div className="mono section-kicker">05 — Education</div><h2>Computer science<br/>and data science.</h2></div>
+              <p className="section-intro">B.Tech in Computer Science with a Data Science major, covering software engineering, analytical methods and mathematical foundations.</p>
             </div>
             <div className="education">
               <div><h3>Acropolis Institute of Technology and Research</h3><p>B.Tech · Computer Science — Data Science · Indore, India</p><p>November 2021 — May 2025</p></div>
@@ -242,11 +334,11 @@ export default function Home() {
 
         <section className="contact" id="contact">
           <div className="wrap contact-grid">
-            <div><div className="mono section-kicker">06 — Start a conversation</div><h2>Have a real problem<br/>worth building for?</h2><p>I’m interested in teams that value clear thinking, strong engineering fundamentals and people who take ownership from idea to execution.</p></div>
+            <div><div className="mono section-kicker">06 — Contact</div><h2>Let’s discuss<br/>what needs building.</h2><p>I’m interested in engineering teams working on practical AI products, machine learning systems and software where strong implementation matters.</p></div>
             <div className="contact-actions">
-              <a className="button" href={`mailto:${email}`}>Email me <Mail size={15}/></a>
-              <a className="button secondary" href={linkedin} target="_blank" rel="noreferrer">LinkedIn <Linkedin size={15}/></a>
-              <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={15}/></a>
+              <a className="button" href={"mailto:" + email}>Email <Mail size={14}/></a>
+              <a className="button secondary" href={linkedin} target="_blank" rel="noreferrer">LinkedIn <Linkedin size={14}/></a>
+              <a className="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <Github size={14}/></a>
             </div>
           </div>
         </section>
@@ -256,12 +348,14 @@ export default function Home() {
 
       {selected && (
         <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}>
-          <section className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" aria-label="Close project details" onClick={() => setSelected(null)}><X/></button>
-            <div className="mono section-kicker">PROJECT / {selected.n} · {selected.type}</div>
-            <h2 id="modal-title">{selected.title}</h2><p>{selected.hook}</p><p>{selected.detail}</p>
+          <section className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onClick={(event) => event.stopPropagation()}>
+            <button className="modal-close" aria-label="Close project details" onClick={() => setSelected(null)}><X size={19}/></button>
+            <div className="mono section-kicker">PROJECT / {selected.number} · {selected.category}</div>
+            <h2 id="modal-title">{selected.name}</h2>
+            <p><strong>{selected.headline}</strong></p>
+            <p>{selected.detail}</p>
             <div className="chips">{selected.stack.map((item) => <span className="chip" key={item}>{item}</span>)}</div>
-            {selected.repo && <a className="button" href={selected.repo} target="_blank" rel="noreferrer">View source repository <ArrowUpRight size={15}/></a>}
+            {selected.repo && <a className="button" href={selected.repo} target="_blank" rel="noreferrer">Inspect source code <ArrowUpRight size={14}/></a>}
           </section>
         </div>
       )}
