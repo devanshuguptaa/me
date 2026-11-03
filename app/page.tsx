@@ -208,8 +208,8 @@ export default function Home() {
               </div>
               <div className="hero-panel">
                 <div className="panel-heading">EXPERIENCE</div>
-                <div className="panel-row"><span>01</span><div><strong>Gen AI Developer <small>· BluCursor Infotech</small></strong><p>Built LeaseGuard AI, a production document platform for US residency applications.</p></div></div>
-                <div className="panel-row"><span>02</span><div><strong>Software Developer Engineer <small>· Data Annotation</small></strong><p>Created coding tasks and edge cases; evaluated model-generated code for correctness and reasoning.</p></div></div>
+                <div className="panel-row"><span>01</span><div><strong>Software Developer Engineer <small>· Data Annotation</small></strong><p>Created coding tasks and edge cases; evaluated model-generated code for correctness and reasoning.</p></div></div>
+                <div className="panel-row"><span>02</span><div><strong>Gen AI Developer <small>· BluCursor Infotech</small></strong><p>Built LeaseGuard AI, a production document platform for US residency applications.</p></div></div>
                 <div className="panel-row"><span>03</span><div><strong>Founding Engineer <small>· Advanced Intelligence Ventures</small></strong><p>Built an OAuth-secured Gmail MCP agent with LLM intent handling and Calendar tools.</p></div></div>
               </div>
             </div>
