@@ -40,6 +40,9 @@ const projects = [
     name: "LeaseGuard AI",
     category: "DOCUMENT AUTOMATION · PRODUCTION",
     year: "2025–26",
+    role: "Gen AI Developer",
+    company: "BluCursor Infotech Pvt. Ltd.",
+    status: "Production",
     headline: "Checking whether a residency application is complete—not just extracting its text.",
     description: "Worked on a production document-processing platform for US tenant residency applications. It handled 50–150-page application bundles, identified each form, extracted structured fields and checked whether state- and applicant-specific supporting documents were present and valid.",
     proof: ["50–150 page application bundles", "State-specific rule validation", "Asynchronous processing with SQS", "Human review for exceptions"],
@@ -336,6 +339,11 @@ export default function Home() {
             <div className="mono section-kicker">PROJECT / {selected.number} · {selected.category}</div>
             <h2 id="modal-title">{selected.name}</h2>
             <p className="modal-summary"><strong>{selected.headline}</strong></p>
+            {"role" in selected && <div className="case-meta">
+              <span><b>ROLE</b>{selected.role}</span>
+              <span><b>COMPANY</b>{selected.company}</span>
+              <span><b>STATUS</b>{selected.status}</span>
+            </div>}
             <div className="modal-block"><span>OVERVIEW</span><p>{selected.description}</p></div>
             {"pipeline" in selected && <div className="modal-block"><span>PROCESSING PIPELINE</span><p>{selected.pipeline}</p></div>}
             {"challenge" in selected && <div className="modal-block"><span>ENGINEERING CHALLENGE</span><p>{selected.challenge}</p></div>}
